@@ -7,20 +7,25 @@ var { Ingrediente } = require('../models/ingrediente');
 // => localhost:3000/ingredientes/
 router.get('/', (req,res) => {
     Ingrediente.find((err, docs) => {
-        if(!err) { res.send(docs); }
+        if(!err) { 
+            res.send(docs);
+        }
         else { console.log('Error in Retriving Ingrediente :' + JSON.stringify(err, undefined, 2)); }
     });
 });
 
 router.get('/:id', (req,res) =>{
-    console.log(req.param.id);
+
     if(!ObjectId.isValid(req.params.id)){
         console.log('id isnt valid');
         return res.status(400).send(`No record with given id: ${req.params.id}`);
     }
     
     Ingrediente.findById(req.params.id, (err,doc) => {
-        if (!err) { res.send(doc); }
+        if (!err) { 
+
+            res.json(doc); 
+        }
         else { console.log('Error in Retriving Ingrediente :' + JSON.stringify(err, undefined, 2)); }
         res.end(doc);
     });

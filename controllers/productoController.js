@@ -7,7 +7,8 @@ var { Producto } = require('../models/producto');
 // => localhost:3000/productos/
 router.get('/', (req,res) => {
     Producto.find((err, docs) => {
-        if(!err) { res.send(docs); }
+        if(!err) {
+            res.send(docs); }
         else { console.log('Error in Retriving Producto :' + JSON.stringify(err, undefined, 2)); }
     });
 });

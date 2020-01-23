@@ -13,7 +13,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(cors({ origin: 'http://localhost:4200' }));
 
-app.listen(3000, () => console.log('Server started at port: 3000'));
+app.listen(3020, () => console.log('Server started at port: 3020'));
 
 app.use('/ingredientes', ingredienteController);
 app.use('/productos', productoController);
